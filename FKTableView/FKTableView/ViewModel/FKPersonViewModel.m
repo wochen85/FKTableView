@@ -28,6 +28,9 @@
             model.fullName = [NSString stringWithFormat:@"fullName %@", @(i)];
             
             [model.selectedSignal subscribeNext:self.handleSelected];
+            [model.ageChangeSignal subscribeNext:^(NSString * _Nullable x) {
+                NSLog(@"%@ : %@", model, x);
+            }];
             [_cellModelArr addObject:model];
         }
         
@@ -45,6 +48,9 @@
                 model.fullName = [NSString stringWithFormat:@"fullName %@ %@", @(j), @(i)];
                 
                 [model.selectedSignal subscribeNext:self.handleSelected];
+                [model.ageChangeSignal subscribeNext:^(NSString * _Nullable x) {
+                    NSLog(@"%@ : %@", model, x);
+                }];
                 [sectionModel.rowModels addObject:model];
             }
             [_sectionModelArr addObject:sectionModel];

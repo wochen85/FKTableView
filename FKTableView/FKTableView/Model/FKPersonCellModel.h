@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString* fullName;
 @property(nonatomic, copy) NSString* age;
 
+@property(nonatomic, strong) RACSubject<NSString*>* ageChangeSignal;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,4 +9,13 @@
 #import "FKPersonCellModel.h"
 
 @implementation FKPersonCellModel
+- (RACSubject<NSString *> *)ageChangeSignal
+{
+    if (!_ageChangeSignal)
+    {
+        _ageChangeSignal = [RACSubject subject];
+    }
+    return _ageChangeSignal;
+}
+
 @end

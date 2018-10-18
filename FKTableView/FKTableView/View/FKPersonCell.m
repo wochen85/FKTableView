@@ -37,6 +37,7 @@
     self.ageTF.text = cellModel.age;
     [[self.ageTF.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(NSString * _Nullable x) {
         cellModel.age = x;
+        [cellModel.ageChangeSignal sendNext:x];
     }];
 }
 
