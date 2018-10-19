@@ -26,7 +26,7 @@
 
 +(instancetype) fk_cellForTableView:(UITableView*) tableView cellModel:(FKTableViewCellModel*)cellModel
 {
-    NSString* idf = NSStringFromClass([self class]);
+    NSString* idf = cellModel.nibName;
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:idf];
     if (!cell)
     {
