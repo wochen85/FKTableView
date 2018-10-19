@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSMutableArray<FKPersonCellModel*>* cellModelArr;
 @property(nonatomic, strong) NSMutableArray<FKTableViewSectionModel*>* sectionModelArr;
 @property(nonatomic, strong) RACSubject<NSString*>* showFullNameSignal;
+
+-(RACSignal*) fresh;
+-(RACSignal*) loadMore;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -15,24 +15,59 @@
 @end
 
 @implementation FKPersonViewModel
+- (RACSignal *)fresh
+{
+    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[self mutableArrayValueForKey:@"cellModelArr"] removeAllObjects];
+            for (int i=0; i<20; i++)
+            {
+                FKPersonCellModel* model = [FKPersonCellModel new];
+                model.personId = [NSString stringWithFormat:@"%@", @(i)];
+                model.shortName = [NSString stringWithFormat:@"shortName %@", @(i)];
+                model.fullName = [NSString stringWithFormat:@"fullName %@", @(i)];
+                
+                [model.selectedSignal subscribeNext:self.handleSelected];
+                [model.ageChangeSignal subscribeNext:^(NSString * _Nullable x) {
+                    NSLog(@"%@ : %@", model, x);
+                }];
+                [[self mutableArrayValueForKey:@"cellModelArr"] addObject:model];
+            }
+            [subscriber sendNext:nil];
+        });
+        return nil;
+    }];
+}
+
+- (RACSignal *)loadMore
+{
+    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSInteger count = self.cellModelArr.count;
+            for (NSInteger i=count; i<count+20; i++)
+            {
+                FKPersonCellModel* model = [FKPersonCellModel new];
+                model.personId = [NSString stringWithFormat:@"%@", @(i)];
+                model.shortName = [NSString stringWithFormat:@"shortName %@", @(i)];
+                model.fullName = [NSString stringWithFormat:@"fullName %@", @(i)];
+                
+                [model.selectedSignal subscribeNext:self.handleSelected];
+                [model.ageChangeSignal subscribeNext:^(NSString * _Nullable x) {
+                    NSLog(@"%@ : %@", model, x);
+                }];
+                [[self mutableArrayValueForKey:@"cellModelArr"] addObject:model];
+            }
+            [subscriber sendNext:nil];
+        });
+        return nil;
+    }];
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         _cellModelArr = [NSMutableArray array];
-        for (int i=0; i<50; i++)
-        {
-            FKPersonCellModel* model = [FKPersonCellModel new];
-            model.personId = [NSString stringWithFormat:@"%@", @(i)];
-            model.shortName = [NSString stringWithFormat:@"shortName %@", @(i)];
-            model.fullName = [NSString stringWithFormat:@"fullName %@", @(i)];
-            
-            [model.selectedSignal subscribeNext:self.handleSelected];
-            [model.ageChangeSignal subscribeNext:^(NSString * _Nullable x) {
-                NSLog(@"%@ : %@", model, x);
-            }];
-            [_cellModelArr addObject:model];
-        }
         
         _sectionModelArr = [NSMutableArray array];
         for (int j=0; j<5; j++)

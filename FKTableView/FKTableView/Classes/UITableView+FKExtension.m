@@ -39,6 +39,7 @@
     self.sectionModels = @[sectionModel];
     self.dataSource = self;
     self.delegate = self;
+    [self reloadData];
 }
 
 -(void) configSectionModels:(NSArray<FKTableViewSectionModel*>*) sectionModels
@@ -46,6 +47,7 @@
     self.sectionModels = sectionModels;
     self.dataSource = self;
     self.delegate = self;
+    [self reloadData];
 }
 
 #pragma mark - 数据源

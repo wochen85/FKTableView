@@ -10,6 +10,7 @@
 #import "FKPersonCellModel.h"
 #import "UITableView+FKExtension.h"
 #import "FKPersonViewModel.h"
+#import <UIScrollView+FreshEmpty.h>
 
 @interface ViewController ()
 @property (nonatomic, strong) UITableView* tableView;
@@ -41,6 +42,27 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self configSubViews];
     [self initRAC];
+    [self configFresh];
+    
+    [RACObserve(self.viewModel, cellModelArr) subscribeNext:^(id  _Nullable x) {
+        [self.tableView configRowModels:self.viewModel.cellModelArr];
+    }];
+}
+
+-(void) configFresh
+{
+    [self.tableView configFresh:^{
+        [[self.viewModel fresh] subscribeNext:^(id  _Nullable x) {
+            [self.tableView endFresh];
+        }];
+    }];
+    
+    [self.tableView configLoadMore:^{
+        [[self.viewModel loadMore] subscribeNext:^(id  _Nullable x) {
+            [self.tableView endLoadMore:NO];
+        }];
+    }];
+    [self.tableView beginFresh];
 }
 
 - (void) initRAC
