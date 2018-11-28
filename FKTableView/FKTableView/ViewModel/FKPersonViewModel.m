@@ -9,6 +9,7 @@
 #import "FKPersonViewModel.h"
 #import "FKPersonCellModel.h"
 #import "FKTableViewSectionModel.h"
+#import "MyTableViewHeaderFooterViewModel.h"
 
 @interface FKPersonViewModel()
 @property(nonatomic, copy) void (^handleSelected)(FKTableViewCellModel* x);
@@ -72,9 +73,7 @@
         _sectionModelArr = [NSMutableArray array];
         for (int j=0; j<5; j++)
         {
-            FKTableViewSectionModel* sectionModel = [FKTableViewSectionModel new];
-            sectionModel.headConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:20 bgColor:[UIColor lightGrayColor] title:@"header"];
-            sectionModel.footConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:20 bgColor:[UIColor darkGrayColor] title:@"footer"];
+            NSMutableArray<FKTableViewCellModel*>* tmpRowModels = [NSMutableArray array];
             for (int i=0; i<20; i++)
             {
                 FKPersonCellModel* model = [FKPersonCellModel new];
@@ -86,8 +85,21 @@
                 [model.ageChangeSignal subscribeNext:^(NSString * _Nullable x) {
                     NSLog(@"%@ : %@", model, x);
                 }];
-                [sectionModel.rowModels addObject:model];
+                [tmpRowModels addObject:model];
             }
+            
+            MyTableViewHeaderFooterViewModel* headModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"%@ %@", @(j), @(j)]];
+            MyTableViewHeaderFooterViewModel* footModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"%@ %@", @(j), @(j)]];
+            [headModel.buttonSignal subscribeNext:^(id  _Nullable x) {
+                [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"头部 %@ 被点击", @(j)]];
+            }];
+            [footModel.buttonSignal subscribeNext:^(id  _Nullable x) {
+                [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"尾部 %@ 被点击", @(j)]];
+            }];
+            FKTableSectionHeaderFooterConfig* headConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:50 headFooterModel:headModel];
+            FKTableSectionHeaderFooterConfig* footConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:30 headFooterModel:footModel];
+            FKTableViewSectionModel* sectionModel = [[FKTableViewSectionModel alloc] initWithRowModels:tmpRowModels headConfig:headConfig footConfig:footConfig];
+            
             [_sectionModelArr addObject:sectionModel];
         }
     }

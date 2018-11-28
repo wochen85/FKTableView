@@ -11,6 +11,7 @@
 #import "FKTableViewCellModel.h"
 #import "FKTableViewSectionModel.h"
 #import "UITableViewCell+FKExtension.h"
+#import "UITableViewHeaderFooterView+FKExtension.h"
 
 @interface UITableView ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray<FKTableViewSectionModel*>* sectionModels;
@@ -32,9 +33,7 @@
 
 -(void) configRowModels:(NSArray<FKTableViewCellModel*>*) rowModels
 {
-    FKTableViewSectionModel* sectionModel = [FKTableViewSectionModel new];
-    [sectionModel.rowModels removeAllObjects];
-    [sectionModel.rowModels addObjectsFromArray:rowModels];
+    FKTableViewSectionModel* sectionModel = [[FKTableViewSectionModel alloc] initWithRowModels:rowModels headConfig:nil footConfig:nil];
     
     self.sectionModels = @[sectionModel];
     self.dataSource = self;
@@ -94,46 +93,13 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UITableViewHeaderFooterView* v = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"header"];
-    if (!v)
-    {
-        v = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"header"];
-    }
-    return v;
+    return [UITableViewHeaderFooterView fk_headerFooterForTableView:tableView headerFooterModel:self.sectionModels[section].headConfig.headFooterModel];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UITableViewHeaderFooterView* v = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"footer"];
-    if (!v)
-    {
-        v = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"footer"];
-    }
-    return v;
+    return [UITableViewHeaderFooterView fk_headerFooterForTableView:tableView headerFooterModel:self.sectionModels[section].footConfig.headFooterModel];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
-{
-    if ([view isKindOfClass:[UITableViewHeaderFooterView class]]) {
-        ((UITableViewHeaderFooterView *)view).backgroundView.backgroundColor = self.sectionModels[section].headConfig.bgColor?:[UIColor clearColor];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
-{
-    if ([view isKindOfClass:[UITableViewHeaderFooterView class]]) {
-        ((UITableViewHeaderFooterView *)view).backgroundView.backgroundColor = self.sectionModels[section].footConfig.bgColor?:[UIColor clearColor];
-    }
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return self.sectionModels[section].headConfig.title;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-{
-    return self.sectionModels[section].footConfig.title;
-}
 
 @end

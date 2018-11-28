@@ -9,18 +9,20 @@
 #import <Foundation/Foundation.h>
 
 @class UIColor;
+@class FKTableViewHeaderFooterModel;
 @interface FKTableSectionHeaderFooterConfig : NSObject
-@property (nonatomic) NSUInteger height;
-@property (nonatomic, strong) UIColor* bgColor;
-@property (nonatomic, copy) NSString* title;
+- (instancetype)initWithHeight:(NSUInteger) height headFooterModel:(FKTableViewHeaderFooterModel*) headFooterModel;
 
-- (instancetype)initWithHeight:(NSUInteger) height bgColor:(UIColor*) bgColor title:(NSString*) title;
+@property (nonatomic, readonly) NSUInteger height;
+@property (nonatomic, strong, readonly) FKTableViewHeaderFooterModel* headFooterModel;
 @end
 
 @class FKTableViewCellModel;
 @interface FKTableViewSectionModel : NSObject
-@property (nonatomic, strong) NSMutableArray<FKTableViewCellModel*>* rowModels;
-@property (nonatomic, strong) FKTableSectionHeaderFooterConfig* headConfig;
-@property (nonatomic, strong) FKTableSectionHeaderFooterConfig* footConfig;
+- (instancetype)initWithRowModels:(NSArray<FKTableViewCellModel*>*)rowModels headConfig:(FKTableSectionHeaderFooterConfig*) headConfig footConfig:(FKTableSectionHeaderFooterConfig*) footConfig;
+
+@property (nonatomic, strong, readonly) NSArray<FKTableViewCellModel*>* rowModels;
+@property (nonatomic, strong, readonly) FKTableSectionHeaderFooterConfig* headConfig;
+@property (nonatomic, strong, readonly) FKTableSectionHeaderFooterConfig* footConfig;
 @end
 

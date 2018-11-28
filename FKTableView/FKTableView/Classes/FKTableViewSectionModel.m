@@ -7,28 +7,59 @@
 //
 
 #import "FKTableViewSectionModel.h"
+#import "FKTableViewHeaderFooterModel.h"
+
+@interface FKTableSectionHeaderFooterConfig()
+@property (nonatomic) NSUInteger height;
+@property (nonatomic, strong) FKTableViewHeaderFooterModel* headFooterModel;
+@end
 
 @implementation FKTableSectionHeaderFooterConfig
 
-- (instancetype)initWithHeight:(NSUInteger) height bgColor:(UIColor*) bgColor title:(NSString*) title
+- (instancetype)initWithHeight:(NSUInteger) height headFooterModel:(FKTableViewHeaderFooterModel*) headFooterModel
 {
     self = [super init];
     if (self) {
         _height = height;
-        _bgColor = bgColor;
-        _title = title;
+        _headFooterModel = headFooterModel;
     }
     return self;
 }
 
+- (FKTableViewHeaderFooterModel *)headFooterModel
+{
+    if (nil == _headFooterModel)
+    {
+        _headFooterModel = [FKTableViewHeaderFooterModel new];
+    }
+    return _headFooterModel;
+}
+
+@end
+
+@interface FKTableViewSectionModel()
+@property (nonatomic, strong) NSArray<FKTableViewCellModel*>* rowModels;
+@property (nonatomic, strong) FKTableSectionHeaderFooterConfig* headConfig;
+@property (nonatomic, strong) FKTableSectionHeaderFooterConfig* footConfig;
 @end
 
 @implementation FKTableViewSectionModel
+- (instancetype)initWithRowModels:(NSArray<FKTableViewCellModel*>*)rowModels headConfig:(FKTableSectionHeaderFooterConfig*) headConfig footConfig:(FKTableSectionHeaderFooterConfig*) footConfig;
+{
+    self = [super init];
+    if (self) {
+        _rowModels = rowModels;
+        _headConfig = headConfig;
+        _footConfig = footConfig;
+    }
+    return self;
+}
+
 - (FKTableSectionHeaderFooterConfig *)headConfig
 {
     if (!_headConfig)
     {
-        _headConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:0.00000001 bgColor:nil title:@""];
+        _headConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:0.00000001 headFooterModel:nil];
     }
     return _headConfig;
 }
@@ -37,16 +68,16 @@
 {
     if (!_footConfig)
     {
-        _footConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:0.00000001 bgColor:nil title:@""];
+        _footConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:0.00000001 headFooterModel:nil];
     }
     return _footConfig;
 }
 
-- (NSMutableArray<FKTableViewCellModel *> *)rowModels
+- (NSArray<FKTableViewCellModel *> *)rowModels
 {
     if (!_rowModels)
     {
-        _rowModels = [NSMutableArray array];
+        _rowModels = [NSArray array];
     }
     return _rowModels;
 }
