@@ -6,7 +6,7 @@ target 'FKTableView' do
   # use_frameworks!
 
   # Pods for FKTableView
-  pod 'ReactiveObjC'
+  pod 'FKTableView', :path => "./"
   pod 'ScrollViewFreshEmpty'
 
 end
