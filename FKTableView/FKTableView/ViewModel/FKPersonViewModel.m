@@ -88,8 +88,8 @@
                 [tmpRowModels addObject:model];
             }
             
-            MyTableViewHeaderFooterViewModel* headModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"%@ %@", @(j), @(j)]];
-            MyTableViewHeaderFooterViewModel* footModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"%@ %@", @(j), @(j)]];
+            MyTableViewHeaderFooterViewModel* headModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"header %@", @(j)]];
+            MyTableViewHeaderFooterViewModel* footModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"footer %@", @(j)]];
             [headModel.buttonSignal subscribeNext:^(id  _Nullable x) {
                 [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"头部 %@ 被点击", @(j)]];
             }];
