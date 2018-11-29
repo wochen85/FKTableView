@@ -8,7 +8,7 @@
 
 #import "FKPersonViewModel.h"
 #import "FKPersonCellModel.h"
-#import "FKTableViewSectionModel.h"
+#import <FKTableView.h>
 #import "MyTableViewHeaderFooterViewModel.h"
 
 @interface FKPersonViewModel()
@@ -101,6 +101,41 @@
             FKTableViewSectionModel* sectionModel = [[FKTableViewSectionModel alloc] initWithRowModels:tmpRowModels headConfig:headConfig footConfig:footConfig];
             
             [_sectionModelArr addObject:sectionModel];
+        }
+
+        _commonSectionModelArr = [NSMutableArray array];
+        for (int j=0; j<5; j++)
+        {
+            NSMutableArray<FKTableViewCellModel*>* tmpRowModels = [NSMutableArray array];
+            for (int i=0; i<20; i++)
+            {
+                FKPersonCellModel* model = [FKPersonCellModel new];
+                model.personId = [NSString stringWithFormat:@"%@ %@", @(j), @(i)];
+                model.shortName = [NSString stringWithFormat:@"shortName %@ %@", @(j), @(i)];
+                model.fullName = [NSString stringWithFormat:@"fullName %@ %@", @(j), @(i)];
+
+                [model.selectedSignal subscribeNext:self.handleSelected];
+                [model.ageChangeSignal subscribeNext:^(NSString * _Nullable x) {
+                    NSLog(@"%@ : %@", model, x);
+                }];
+                [tmpRowModels addObject:model];
+            }
+
+            NSAttributedString* text = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"header %@", @(j)]];
+            FKTableViewHeaderFooterCommonModel* headModel = [[FKTableViewHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentCenter];
+            text = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"footer %@", @(j)]];
+            FKTableViewHeaderFooterCommonModel* footModel = [[FKTableViewHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor redColor] textAlignment:NSTextAlignmentRight];
+            [headModel.clickSignal subscribeNext:^(id  _Nullable x) {
+                [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"头部 %@ 被点击", @(j)]];
+            }];
+            [footModel.clickSignal subscribeNext:^(id  _Nullable x) {
+                [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"尾部 %@ 被点击", @(j)]];
+            }];
+            FKTableSectionHeaderFooterConfig* headConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:50 headFooterModel:headModel];
+            FKTableSectionHeaderFooterConfig* footConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:30 headFooterModel:footModel];
+            FKTableViewSectionModel* sectionModel = [[FKTableViewSectionModel alloc] initWithRowModels:tmpRowModels headConfig:headConfig footConfig:footConfig];
+
+            [_commonSectionModelArr addObject:sectionModel];
         }
     }
     return self;

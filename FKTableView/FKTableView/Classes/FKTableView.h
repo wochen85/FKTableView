@@ -14,5 +14,6 @@
 #import "UITableView+FKExtension.h"
 #import "UITableViewCell+FKExtension.h"
 #import "UITableViewHeaderFooterView+FKExtension.h"
+#import "FKTableViewHeaderFooterCommonModel.h"
 
 #endif /* FKTableView_h */

@@ -8,5 +8,6 @@ target 'FKTableView' do
   # Pods for FKTableView
   pod 'FKTableView', :path => "../"
   pod 'ScrollViewFreshEmpty'
+  pod 'SVProgressHUD'
 
 end

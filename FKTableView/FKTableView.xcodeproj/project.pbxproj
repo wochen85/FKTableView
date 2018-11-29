@@ -19,6 +19,8 @@
 		6B85E8BA217857B60006BC1A /* FKPersonCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85E8B9217857B60006BC1A /* FKPersonCellModel.m */; };
 		6B85E8BD21785E5A0006BC1A /* FKPersonViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85E8BC21785E5A0006BC1A /* FKPersonViewModel.m */; };
 		6B85E8C0217877450006BC1A /* SectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85E8BF217877450006BC1A /* SectionViewController.m */; };
+		6B8A1DA421B026B500000CF5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A1DA321B026B500000CF5 /* HomeViewController.m */; };
+		6B8A1DA921B02A7500000CF5 /* CommonSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A1DA821B02A7500000CF5 /* CommonSectionViewController.m */; };
 		6BCAA7F421AE7F9200583AFB /* MyTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BCAA7F321AE7F9200583AFB /* MyTableViewHeaderFooterView.xib */; };
 		6BCAA7F721AE804500583AFB /* MyTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAA7F621AE804500583AFB /* MyTableViewHeaderFooterView.m */; };
 		6BCAA7FA21AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAA7F921AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m */; };
@@ -46,6 +48,10 @@
 		6B85E8BC21785E5A0006BC1A /* FKPersonViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKPersonViewModel.m; sourceTree = "<group>"; };
 		6B85E8BE217877450006BC1A /* SectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionViewController.h; sourceTree = "<group>"; };
 		6B85E8BF217877450006BC1A /* SectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionViewController.m; sourceTree = "<group>"; };
+		6B8A1DA221B026B500000CF5 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		6B8A1DA321B026B500000CF5 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		6B8A1DA721B02A7500000CF5 /* CommonSectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonSectionViewController.h; sourceTree = "<group>"; };
+		6B8A1DA821B02A7500000CF5 /* CommonSectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonSectionViewController.m; sourceTree = "<group>"; };
 		6BCAA7F321AE7F9200583AFB /* MyTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		6BCAA7F521AE804500583AFB /* MyTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		6BCAA7F621AE804500583AFB /* MyTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewHeaderFooterView.m; sourceTree = "<group>"; };
@@ -133,9 +139,13 @@
 				6B85E8B5217857570006BC1A /* FKPersonCell.xib */,
 				6B85E8BE217877450006BC1A /* SectionViewController.h */,
 				6B85E8BF217877450006BC1A /* SectionViewController.m */,
+				6B8A1DA721B02A7500000CF5 /* CommonSectionViewController.h */,
+				6B8A1DA821B02A7500000CF5 /* CommonSectionViewController.m */,
 				6BCAA7F321AE7F9200583AFB /* MyTableViewHeaderFooterView.xib */,
 				6BCAA7F521AE804500583AFB /* MyTableViewHeaderFooterView.h */,
 				6BCAA7F621AE804500583AFB /* MyTableViewHeaderFooterView.m */,
+				6B8A1DA221B026B500000CF5 /* HomeViewController.h */,
+				6B8A1DA321B026B500000CF5 /* HomeViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,10 +265,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FKTableView/Pods-FKTableView-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -275,6 +287,8 @@
 				6B85E8BA217857B60006BC1A /* FKPersonCellModel.m in Sources */,
 				6B85E8B6217857570006BC1A /* FKPersonCell.m in Sources */,
 				6B85E89221781E470006BC1A /* ViewController.m in Sources */,
+				6B8A1DA921B02A7500000CF5 /* CommonSectionViewController.m in Sources */,
+				6B8A1DA421B026B500000CF5 /* HomeViewController.m in Sources */,
 				6BCAA7FA21AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m in Sources */,
 				6B85E8C0217877450006BC1A /* SectionViewController.m in Sources */,
 				6BCAA7F721AE804500583AFB /* MyTableViewHeaderFooterView.m in Sources */,

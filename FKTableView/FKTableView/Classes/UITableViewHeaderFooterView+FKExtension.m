@@ -7,7 +7,8 @@
 
 #import "UITableViewHeaderFooterView+FKExtension.h"
 #import <objc/runtime.h>
-#import "FKTableViewHeaderFooterModel.h"
+#import "FKTableView.h"
+#import "FKTableViewHeaderFooterCommon.h"
 
 @implementation UITableViewHeaderFooterView (FKExtension)
 
@@ -24,6 +25,18 @@
 
 +(instancetype) fk_headerFooterForTableView:(UITableView*) tableView headerFooterModel:(FKTableViewHeaderFooterModel*)headerFooterModel
 {
+    if ([headerFooterModel isKindOfClass:[FKTableViewHeaderFooterCommonModel class]])
+    {
+        static NSString* commonHeadFoot = @"commonHeadFoot";
+        FKTableViewHeaderFooterCommon* headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:commonHeadFoot];
+        if (nil == headerFooterView)
+        {
+            headerFooterView = [[FKTableViewHeaderFooterCommon alloc] initWithReuseIdentifier:commonHeadFoot];
+        }
+        headerFooterView.headerFooterModel = headerFooterModel;
+        return headerFooterView;
+    }
+
     NSString* idf = headerFooterModel.nibName;
     UITableViewHeaderFooterView* headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:idf];
     if (nil == headerFooterView)

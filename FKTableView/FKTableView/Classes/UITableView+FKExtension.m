@@ -12,6 +12,7 @@
 #import "FKTableViewSectionModel.h"
 #import "UITableViewCell+FKExtension.h"
 #import "UITableViewHeaderFooterView+FKExtension.h"
+#import "FKTableViewHeaderFooterCommonModel.h"
 
 @interface UITableView ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray<FKTableViewSectionModel*>* sectionModels;
