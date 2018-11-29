@@ -7,8 +7,8 @@
 //
 
 #import "FKPersonCell.h"
-#import "UITableViewCell+FKExtension.h"
 #import "FKPersonCellModel.h"
+#import <FKTableView.h>
 
 @interface FKPersonCell()
 @property (weak, nonatomic) IBOutlet UILabel *idLabel;

@@ -8,9 +8,9 @@
 
 #import "ViewController.h"
 #import "FKPersonCellModel.h"
-#import "UITableView+FKExtension.h"
 #import "FKPersonViewModel.h"
 #import <UIScrollView+FreshEmpty.h>
+#import <FKTableView.h>
 
 @interface ViewController ()
 @property (nonatomic, strong) UITableView* tableView;

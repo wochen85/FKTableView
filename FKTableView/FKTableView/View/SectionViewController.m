@@ -8,8 +8,8 @@
 
 #import "SectionViewController.h"
 #import "FKPersonCellModel.h"
-#import "UITableView+FKExtension.h"
 #import "FKPersonViewModel.h"
+#import <FKTableView.h>
 
 @interface SectionViewController ()
 @property (nonatomic, strong) UITableView* tableView;

@@ -7,8 +7,8 @@
 //
 
 #import "MyTableViewHeaderFooterView.h"
-#import "UITableViewHeaderFooterView+FKExtension.h"
 #import "MyTableViewHeaderFooterViewModel.h"
+#import <FKTableView.h>
 
 @interface MyTableViewHeaderFooterView()
 @property (weak, nonatomic) IBOutlet UILabel *fklabel;
