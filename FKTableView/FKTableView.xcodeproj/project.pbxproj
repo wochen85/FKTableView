@@ -19,10 +19,10 @@
 		6B85E8BA217857B60006BC1A /* FKPersonCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85E8B9217857B60006BC1A /* FKPersonCellModel.m */; };
 		6B85E8BD21785E5A0006BC1A /* FKPersonViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85E8BC21785E5A0006BC1A /* FKPersonViewModel.m */; };
 		6B85E8C0217877450006BC1A /* SectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85E8BF217877450006BC1A /* SectionViewController.m */; };
-		6BCAA7EE21AE6A0700583AFB /* FKTableView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6BCAA7ED21AE6A0700583AFB /* FKTableView.podspec */; };
 		6BCAA7F421AE7F9200583AFB /* MyTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BCAA7F321AE7F9200583AFB /* MyTableViewHeaderFooterView.xib */; };
 		6BCAA7F721AE804500583AFB /* MyTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAA7F621AE804500583AFB /* MyTableViewHeaderFooterView.m */; };
 		6BCAA7FA21AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAA7F921AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m */; };
+		6BCAA7FC21AF805300583AFB /* FKTableView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6BCAA7FB21AF805300583AFB /* FKTableView.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,12 +46,12 @@
 		6B85E8BC21785E5A0006BC1A /* FKPersonViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKPersonViewModel.m; sourceTree = "<group>"; };
 		6B85E8BE217877450006BC1A /* SectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionViewController.h; sourceTree = "<group>"; };
 		6B85E8BF217877450006BC1A /* SectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionViewController.m; sourceTree = "<group>"; };
-		6BCAA7ED21AE6A0700583AFB /* FKTableView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FKTableView.podspec; sourceTree = "<group>"; };
 		6BCAA7F321AE7F9200583AFB /* MyTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		6BCAA7F521AE804500583AFB /* MyTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		6BCAA7F621AE804500583AFB /* MyTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		6BCAA7F821AE816E00583AFB /* MyTableViewHeaderFooterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewHeaderFooterViewModel.h; sourceTree = "<group>"; };
 		6BCAA7F921AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewHeaderFooterViewModel.m; sourceTree = "<group>"; };
+		6BCAA7FB21AF805300583AFB /* FKTableView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FKTableView.podspec; path = ../FKTableView.podspec; sourceTree = "<group>"; };
 		B2D133E161D419925CA51949 /* libPods-FKTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FKTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8714E0E2F7CBA00538A1247 /* Pods-FKTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FKTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FKTableView/Pods-FKTableView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +79,7 @@
 		6B85E88121781E470006BC1A = {
 			isa = PBXGroup;
 			children = (
-				6BCAA7ED21AE6A0700583AFB /* FKTableView.podspec */,
+				6BCAA7FB21AF805300583AFB /* FKTableView.podspec */,
 				6B85E88C21781E470006BC1A /* FKTableView */,
 				6B85E88B21781E470006BC1A /* Products */,
 				D866D0DD3ED86156D1060DF9 /* Pods */,
@@ -222,7 +222,7 @@
 				6B85E8B7217857570006BC1A /* FKPersonCell.xib in Resources */,
 				6B85E89721781E490006BC1A /* Assets.xcassets in Resources */,
 				6B85E89521781E470006BC1A /* Main.storyboard in Resources */,
-				6BCAA7EE21AE6A0700583AFB /* FKTableView.podspec in Resources */,
+				6BCAA7FC21AF805300583AFB /* FKTableView.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

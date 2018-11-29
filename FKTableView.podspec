@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
 
   s.dependency 'ReactiveObjC'
 
-  s.source_files = 'FKTableView/Classes/*.{h,m}'
+  s.source_files = 'FKTableView/FKTableView/Classes/*.{h,m}'
 
 end
