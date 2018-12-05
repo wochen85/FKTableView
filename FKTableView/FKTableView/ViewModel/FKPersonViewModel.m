@@ -122,9 +122,9 @@
             }
 
             NSAttributedString* text = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"section header %@", @(j)]];
-            FKSectionHeaderFooterCommonModel* headModel = [[FKSectionHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentCenter];
+            FKHeaderFooterCommonModel* headModel = [[FKHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentCenter];
             text = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"section footer %@", @(j)]];
-            FKSectionHeaderFooterCommonModel* footModel = [[FKSectionHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor redColor] textAlignment:NSTextAlignmentRight];
+            FKHeaderFooterCommonModel* footModel = [[FKHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor redColor] textAlignment:NSTextAlignmentRight];
             [headModel.clickSignal subscribeNext:^(id  _Nullable x) {
                 [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"头部 %@ 被点击", @(j)]];
             }];

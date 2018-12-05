@@ -50,7 +50,7 @@
     }];
     
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"切换t头部" style:(UIBarButtonItemStylePlain) target:self action:@selector(changeHead)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"切换头部" style:(UIBarButtonItemStylePlain) target:self action:@selector(changeHead)];
 }
 
 -(void) changeHead

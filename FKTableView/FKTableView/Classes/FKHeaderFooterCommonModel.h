@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FKSectionHeaderFooterCommonModel : FKHeaderFooterModel
+@interface FKHeaderFooterCommonModel : FKHeaderFooterModel
 - (instancetype)initWithText:(NSAttributedString*) text bgColor:(UIColor*) bgColor textAlignment:(NSTextAlignment) textAlignment;
 
 @property (nonatomic, strong) UIColor* bgColor;
