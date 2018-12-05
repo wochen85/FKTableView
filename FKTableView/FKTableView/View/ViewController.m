@@ -55,6 +55,7 @@
 
 -(void) changeHead
 {
+    [self.tableView beginUpdates];
     static BOOL flag = NO;
     if (flag)
     {
@@ -70,6 +71,7 @@
         [self.tableView fk_configHeader:nil];
     }
     flag = !flag;
+    [self.tableView endUpdates];
 }
 
 -(void) configFresh
