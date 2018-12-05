@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class FKTableViewCellModel;
+@class FKCellModel;
 @interface UITableViewCell (FKExtension)
-+(instancetype) fk_cellForTableView:(UITableView*) tableView cellModel:(FKTableViewCellModel*)cellModel;
--(void) fk_bindModel:(FKTableViewCellModel*) cellModel;
-@property (nonatomic, strong, readonly) FKTableViewCellModel* cellModel;
++(instancetype) fk_cellForTableView:(UITableView*) tableView cellModel:(FKCellModel*)cellModel;
+//-(void) fk_bindModel:(FKCellModel*) cellModel;
+@property (nonatomic, strong, readonly) FKCellModel* fk_cellModel;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -5,15 +5,15 @@
 //  Created by chat on 2018/11/29.
 //
 
-#import "FKTableViewHeaderFooterCommon.h"
+#import "FKSectionHeaderFooterCommon.h"
 #import "FKTableView.h"
 
-@interface FKTableViewHeaderFooterCommon()
+@interface FKSectionHeaderFooterCommon()
 @property (nonatomic, strong) UILabel* label;
 @property (nonatomic, strong) UITapGestureRecognizer* tapGes;
 @end
 
-@implementation FKTableViewHeaderFooterCommon
+@implementation FKSectionHeaderFooterCommon
 
 - (UILabel *)label
 {
@@ -56,7 +56,7 @@
     self.label.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
 }
 
-- (void)fk_bindModel:(FKTableViewHeaderFooterCommonModel *)headerFooterModel
+- (void)fk_bindModel:(FKSectionHeaderFooterCommonModel *)headerFooterModel
 {
     self.label.backgroundColor = headerFooterModel.bgColor;
     self.label.attributedText = headerFooterModel.text;

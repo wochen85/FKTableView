@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FKTableView'
-  s.version          = '1.0.2'
+  s.version          = '1.1.0'
   s.summary          = 'UITableView的友好扩展'
   s.homepage         = 'https://github.com/wochen85/FKTableView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

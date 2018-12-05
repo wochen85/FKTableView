@@ -12,11 +12,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class FKPersonCellModel;
-@class FKTableViewSectionModel;
+@class FKSectionModel;
 @interface FKPersonViewModel : NSObject
 @property(nonatomic, strong) NSMutableArray<FKPersonCellModel*>* cellModelArr;
-@property(nonatomic, strong) NSMutableArray<FKTableViewSectionModel*>* sectionModelArr;
-@property(nonatomic, strong) NSMutableArray<FKTableViewSectionModel*>* commonSectionModelArr;
+@property(nonatomic, strong) NSMutableArray<FKSectionModel*>* sectionModelArr;
+@property(nonatomic, strong) NSMutableArray<FKSectionModel*>* commonSectionModelArr;
 @property(nonatomic, strong) RACSubject<NSString*>* showFullNameSignal;
 
 -(RACSignal*) fresh;

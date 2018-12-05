@@ -8,32 +8,32 @@
 #import "UITableViewHeaderFooterView+FKExtension.h"
 #import <objc/runtime.h>
 #import "FKTableView.h"
-#import "FKTableViewHeaderFooterCommon.h"
+#import "FKSectionHeaderFooterCommon.h"
 
 @implementation UITableViewHeaderFooterView (FKExtension)
 
-- (FKTableViewHeaderFooterModel *)headerFooterModel
+- (FKHeaderFooterModel *)fk_headerFooterModel
 {
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (void)setHeaderFooterModel:(FKTableViewHeaderFooterModel *)headerFooterModel
+- (void)setFk_headerFooterModel:(FKHeaderFooterModel *)headerFooterModel
 {
-    objc_setAssociatedObject(self, @selector(headerFooterModel), headerFooterModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(fk_headerFooterModel), headerFooterModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self fk_bindModel:headerFooterModel];
 }
 
-+(instancetype) fk_headerFooterForTableView:(UITableView*) tableView headerFooterModel:(FKTableViewHeaderFooterModel*)headerFooterModel
++(instancetype) fk_headerFooterForTableView:(UITableView*) tableView headerFooterModel:(FKHeaderFooterModel*)headerFooterModel
 {
-    if ([headerFooterModel isKindOfClass:[FKTableViewHeaderFooterCommonModel class]])
+    if ([headerFooterModel isKindOfClass:[FKSectionHeaderFooterCommonModel class]])
     {
         static NSString* commonHeadFoot = @"commonHeadFoot";
-        FKTableViewHeaderFooterCommon* headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:commonHeadFoot];
+        FKSectionHeaderFooterCommon* headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:commonHeadFoot];
         if (nil == headerFooterView)
         {
-            headerFooterView = [[FKTableViewHeaderFooterCommon alloc] initWithReuseIdentifier:commonHeadFoot];
+            headerFooterView = [[FKSectionHeaderFooterCommon alloc] initWithReuseIdentifier:commonHeadFoot];
         }
-        headerFooterView.headerFooterModel = headerFooterModel;
+        headerFooterView.fk_headerFooterModel = headerFooterModel;
         return headerFooterView;
     }
 
@@ -45,13 +45,13 @@
         [tableView registerNib:nib forHeaderFooterViewReuseIdentifier:idf];
         headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:idf];
     }
-    headerFooterView.headerFooterModel = headerFooterModel;
+    headerFooterView.fk_headerFooterModel = headerFooterModel;
     return headerFooterView;
 }
 
--(void) fk_bindModel:(FKTableViewHeaderFooterModel*) headerFooterModel;
-{
-    
-}
+//-(void) fk_bindModel:(FKHeaderFooterModel*) headerFooterModel;
+//{
+//    
+//}
 
 @end

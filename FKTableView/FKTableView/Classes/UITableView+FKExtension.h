@@ -10,11 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class FKTableViewCellModel;
-@class FKTableViewSectionModel;
+@class FKCellModel;
+@class FKSectionModel;
+@class FKHeaderFooterModel;
 @interface UITableView (FKExtension)
--(void) configRowModels:(NSArray<FKTableViewCellModel*>*) rowModels;
--(void) configSectionModels:(NSArray<FKTableViewSectionModel*>*) sectionModels;
+-(void) fk_configRowModels:(NSArray<FKCellModel*>*) rowModels;
+-(void) fk_configSectionModels:(NSArray<FKSectionModel*>*) sectionModels;
+-(void) fk_configHeader:(nullable FKHeaderFooterModel*) headerModel;
+-(void) fk_configFooter:(FKHeaderFooterModel*) footerModel;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -5,9 +5,9 @@
 //  Created by chat on 2018/11/29.
 //
 
-#import "FKTableViewHeaderFooterCommonModel.h"
+#import "FKSectionHeaderFooterCommonModel.h"
 
-@implementation FKTableViewHeaderFooterCommonModel
+@implementation FKSectionHeaderFooterCommonModel
 - (instancetype)initWithText:(NSAttributedString*) text bgColor:(UIColor*) bgColor textAlignment:(NSTextAlignment) textAlignment
 {
     self = [super init];

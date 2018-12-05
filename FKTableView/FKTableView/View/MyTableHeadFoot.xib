@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MyTableHeadFoot">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVS-yV-hSk">
+                    <rect key="frame" x="8" y="8" width="359" height="21"/>
+                    <color key="backgroundColor" red="0.25490196079999999" green="0.55294117649999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FZ0-GX-gJo">
+                    <rect key="frame" x="8" y="37" width="359" height="155"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDR-S1-a9Z">
+                    <rect key="frame" x="8" y="199" width="359" height="30"/>
+                    <color key="backgroundColor" red="0.97647058819999999" green="0.80392156859999997" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Button"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nDR-S1-a9Z" firstAttribute="top" secondItem="FZ0-GX-gJo" secondAttribute="bottom" constant="8" id="3Vp-LR-C2G"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uVS-yV-hSk" secondAttribute="trailing" constant="8" id="4A5-FU-du4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FZ0-GX-gJo" secondAttribute="trailing" constant="8" id="4mS-nH-rwr"/>
+                <constraint firstItem="uVS-yV-hSk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="5jh-GI-jDw"/>
+                <constraint firstItem="FZ0-GX-gJo" firstAttribute="top" secondItem="uVS-yV-hSk" secondAttribute="bottom" constant="8" id="AIu-jC-XSD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nDR-S1-a9Z" secondAttribute="trailing" constant="8" id="HaR-W1-Fff"/>
+                <constraint firstItem="uVS-yV-hSk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Nfi-5j-AIC"/>
+                <constraint firstItem="FZ0-GX-gJo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Ru0-o1-OI8"/>
+                <constraint firstAttribute="bottom" secondItem="nDR-S1-a9Z" secondAttribute="bottom" constant="8" id="ZTg-Jm-hxA"/>
+                <constraint firstItem="nDR-S1-a9Z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="e3G-ld-aO4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="myBtn" destination="nDR-S1-a9Z" id="u4E-6C-fEn"/>
+                <outlet property="myLabel" destination="uVS-yV-hSk" id="H2c-xh-Hgy"/>
+                <outlet property="mySegment" destination="FZ0-GX-gJo" id="Hec-sO-Ykg"/>
+            </connections>
+            <point key="canvasLocation" x="149.59999999999999" y="-76.911544227886068"/>
+        </view>
+    </objects>
+</document>

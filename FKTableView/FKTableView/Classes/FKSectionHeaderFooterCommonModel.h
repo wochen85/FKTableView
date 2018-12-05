@@ -5,11 +5,11 @@
 //  Created by chat on 2018/11/29.
 //
 
-#import "FKTableViewHeaderFooterModel.h"
+#import "FKHeaderFooterModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FKTableViewHeaderFooterCommonModel : FKTableViewHeaderFooterModel
+@interface FKSectionHeaderFooterCommonModel : FKHeaderFooterModel
 - (instancetype)initWithText:(NSAttributedString*) text bgColor:(UIColor*) bgColor textAlignment:(NSTextAlignment) textAlignment;
 
 @property (nonatomic, strong) UIColor* bgColor;

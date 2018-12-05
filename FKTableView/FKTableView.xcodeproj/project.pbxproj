@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		241DBD25F246C0491CD672B2 /* libPods-FKTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D133E161D419925CA51949 /* libPods-FKTableView.a */; };
+		6B3779C521B7CBAF008D5F01 /* MyTableHeadFoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B3779C421B7CBAF008D5F01 /* MyTableHeadFoot.xib */; };
+		6B3779C821B7CCC4008D5F01 /* MyTableHeadFoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3779C721B7CCC4008D5F01 /* MyTableHeadFoot.m */; };
+		6B3779CB21B7CD7E008D5F01 /* MyTableHeadFootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3779CA21B7CD7E008D5F01 /* MyTableHeadFootModel.m */; };
 		6B85E88F21781E470006BC1A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85E88E21781E470006BC1A /* AppDelegate.m */; };
 		6B85E89221781E470006BC1A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85E89121781E470006BC1A /* ViewController.m */; };
 		6B85E89521781E470006BC1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B85E89321781E470006BC1A /* Main.storyboard */; };
@@ -29,6 +32,11 @@
 
 /* Begin PBXFileReference section */
 		28E3E05C2CD15C45E1EC1BAE /* Pods-FKTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FKTableView.release.xcconfig"; path = "Pods/Target Support Files/Pods-FKTableView/Pods-FKTableView.release.xcconfig"; sourceTree = "<group>"; };
+		6B3779C421B7CBAF008D5F01 /* MyTableHeadFoot.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableHeadFoot.xib; sourceTree = "<group>"; };
+		6B3779C621B7CCC4008D5F01 /* MyTableHeadFoot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableHeadFoot.h; sourceTree = "<group>"; };
+		6B3779C721B7CCC4008D5F01 /* MyTableHeadFoot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableHeadFoot.m; sourceTree = "<group>"; };
+		6B3779C921B7CD7E008D5F01 /* MyTableHeadFootModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableHeadFootModel.h; sourceTree = "<group>"; };
+		6B3779CA21B7CD7E008D5F01 /* MyTableHeadFootModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableHeadFootModel.m; sourceTree = "<group>"; };
 		6B85E88A21781E470006BC1A /* FKTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FKTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B85E88D21781E470006BC1A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6B85E88E21781E470006BC1A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +129,8 @@
 		6B85E8B0217856A70006BC1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6B3779C921B7CD7E008D5F01 /* MyTableHeadFootModel.h */,
+				6B3779CA21B7CD7E008D5F01 /* MyTableHeadFootModel.m */,
 				6B85E8B8217857B60006BC1A /* FKPersonCellModel.h */,
 				6B85E8B9217857B60006BC1A /* FKPersonCellModel.m */,
 				6BCAA7F821AE816E00583AFB /* MyTableViewHeaderFooterViewModel.h */,
@@ -146,6 +156,9 @@
 				6BCAA7F621AE804500583AFB /* MyTableViewHeaderFooterView.m */,
 				6B8A1DA221B026B500000CF5 /* HomeViewController.h */,
 				6B8A1DA321B026B500000CF5 /* HomeViewController.m */,
+				6B3779C421B7CBAF008D5F01 /* MyTableHeadFoot.xib */,
+				6B3779C621B7CCC4008D5F01 /* MyTableHeadFoot.h */,
+				6B3779C721B7CCC4008D5F01 /* MyTableHeadFoot.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +243,7 @@
 				6BCAA7F421AE7F9200583AFB /* MyTableViewHeaderFooterView.xib in Resources */,
 				6B85E89A21781E490006BC1A /* LaunchScreen.storyboard in Resources */,
 				6B85E8B7217857570006BC1A /* FKPersonCell.xib in Resources */,
+				6B3779C521B7CBAF008D5F01 /* MyTableHeadFoot.xib in Resources */,
 				6B85E89721781E490006BC1A /* Assets.xcassets in Resources */,
 				6B85E89521781E470006BC1A /* Main.storyboard in Resources */,
 				6BCAA7FC21AF805300583AFB /* FKTableView.podspec in Resources */,
@@ -284,10 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B3779CB21B7CD7E008D5F01 /* MyTableHeadFootModel.m in Sources */,
 				6B85E8BA217857B60006BC1A /* FKPersonCellModel.m in Sources */,
 				6B85E8B6217857570006BC1A /* FKPersonCell.m in Sources */,
 				6B85E89221781E470006BC1A /* ViewController.m in Sources */,
 				6B8A1DA921B02A7500000CF5 /* CommonSectionViewController.m in Sources */,
+				6B3779C821B7CCC4008D5F01 /* MyTableHeadFoot.m in Sources */,
 				6B8A1DA421B026B500000CF5 /* HomeViewController.m in Sources */,
 				6BCAA7FA21AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m in Sources */,
 				6B85E8C0217877450006BC1A /* SectionViewController.m in Sources */,

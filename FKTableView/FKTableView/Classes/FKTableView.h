@@ -8,12 +8,13 @@
 #ifndef FKTableView_h
 #define FKTableView_h
 
-#import "FKTableViewCellModel.h"
-#import "FKTableViewHeaderFooterModel.h"
-#import "FKTableViewSectionModel.h"
+#import "FKCellModel.h"
+#import "FKHeaderFooterModel.h"
+#import "FKSectionModel.h"
 #import "UITableView+FKExtension.h"
 #import "UITableViewCell+FKExtension.h"
 #import "UITableViewHeaderFooterView+FKExtension.h"
-#import "FKTableViewHeaderFooterCommonModel.h"
+#import "FKSectionHeaderFooterCommonModel.h"
+#import "UIView+FKExtension.h"
 
 #endif /* FKTableView_h */

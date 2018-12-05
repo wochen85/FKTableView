@@ -57,7 +57,7 @@
     [self.view addSubview:self.tableView];
     self.tableView.frame = self.view.bounds;
 
-    [self.tableView configSectionModels:self.viewModel.commonSectionModelArr];
+    [self.tableView fk_configSectionModels:self.viewModel.commonSectionModelArr];
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "FKPersonViewModel.h"
 #import <UIScrollView+FreshEmpty.h>
 #import <FKTableView.h>
+#import "MyTableHeadFootModel.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) UITableView* tableView;
@@ -45,8 +46,30 @@
     [self configFresh];
     
     [RACObserve(self.viewModel, cellModelArr) subscribeNext:^(id  _Nullable x) {
-        [self.tableView configRowModels:self.viewModel.cellModelArr];
+        [self.tableView fk_configRowModels:self.viewModel.cellModelArr];
     }];
+    
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"切换t头部" style:(UIBarButtonItemStylePlain) target:self action:@selector(changeHead)];
+}
+
+-(void) changeHead
+{
+    static BOOL flag = NO;
+    if (flag)
+    {
+        MyTableHeadFootModel* headModel = [MyTableHeadFootModel new];
+        headModel.labelText = @"tableHead";
+        headModel.segmentIndex = 0;
+        headModel.buttonText = @"头部操作";
+        [self.tableView fk_configHeader:headModel];
+        self.tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 110);
+    }
+    else
+    {
+        [self.tableView fk_configHeader:nil];
+    }
+    flag = !flag;
 }
 
 -(void) configFresh
@@ -79,7 +102,22 @@
     [self.view addSubview:self.tableView];
     self.tableView.frame = self.view.bounds;
     
-    [self.tableView configRowModels:self.viewModel.cellModelArr];
+    [self.tableView fk_configRowModels:self.viewModel.cellModelArr];
+    
+    
+    MyTableHeadFootModel* headModel = [MyTableHeadFootModel new];
+    headModel.labelText = @"tableHead";
+    headModel.segmentIndex = 0;
+    headModel.buttonText = @"头部操作";
+    [self.tableView fk_configHeader:headModel];
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 110);
+    
+    MyTableHeadFootModel* footModel = [MyTableHeadFootModel new];
+    footModel.labelText = @"tableFoot";
+    footModel.segmentIndex = 1;
+    footModel.buttonText = @"尾部操作";
+    [self.tableView fk_configFooter:footModel];
+    self.tableView.tableFooterView.frame = CGRectMake(0, 0, 0, 110);
 }
 
 

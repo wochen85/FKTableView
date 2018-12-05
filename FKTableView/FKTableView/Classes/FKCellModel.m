@@ -6,14 +6,14 @@
 //  Copyright © 2018 CHAT. All rights reserved.
 //
 
-#import "FKTableViewCellModel.h"
+#import "FKCellModel.h"
 
-@interface FKTableViewCellModel()
-@property (nonatomic, strong) RACSubject<FKTableViewCellModel*>* selectedSignal;
+@interface FKCellModel()
+@property (nonatomic, strong) RACSubject<FKCellModel*>* selectedSignal;
 @end
 
-@implementation FKTableViewCellModel
-- (RACSubject<FKTableViewCellModel *> *)selectedSignal
+@implementation FKCellModel
+- (RACSubject<FKCellModel *> *)selectedSignal
 {
     if (!_selectedSignal)
     {

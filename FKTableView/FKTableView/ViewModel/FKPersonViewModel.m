@@ -12,14 +12,14 @@
 #import "MyTableViewHeaderFooterViewModel.h"
 
 @interface FKPersonViewModel()
-@property(nonatomic, copy) void (^handleSelected)(FKTableViewCellModel* x);
+@property(nonatomic, copy) void (^handleSelected)(FKCellModel* x);
 @end
 
 @implementation FKPersonViewModel
 - (RACSignal *)fresh
 {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [[self mutableArrayValueForKey:@"cellModelArr"] removeAllObjects];
             for (int i=0; i<20; i++)
             {
@@ -43,7 +43,7 @@
 - (RACSignal *)loadMore
 {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             NSInteger count = self.cellModelArr.count;
             for (NSInteger i=count; i<count+20; i++)
             {
@@ -73,7 +73,7 @@
         _sectionModelArr = [NSMutableArray array];
         for (int j=0; j<5; j++)
         {
-            NSMutableArray<FKTableViewCellModel*>* tmpRowModels = [NSMutableArray array];
+            NSMutableArray<FKCellModel*>* tmpRowModels = [NSMutableArray array];
             for (int i=0; i<20; i++)
             {
                 FKPersonCellModel* model = [FKPersonCellModel new];
@@ -88,17 +88,17 @@
                 [tmpRowModels addObject:model];
             }
             
-            MyTableViewHeaderFooterViewModel* headModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"header %@", @(j)]];
-            MyTableViewHeaderFooterViewModel* footModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"footer %@", @(j)]];
+            MyTableViewHeaderFooterViewModel* headModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"section header %@", @(j)]];
+            MyTableViewHeaderFooterViewModel* footModel = [[MyTableViewHeaderFooterViewModel alloc] initWithLabelText:[NSString stringWithFormat:@"%@", @(j)] buttonText:[NSString stringWithFormat:@"section footer %@", @(j)]];
             [headModel.buttonSignal subscribeNext:^(id  _Nullable x) {
                 [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"头部 %@ 被点击", @(j)]];
             }];
             [footModel.buttonSignal subscribeNext:^(id  _Nullable x) {
                 [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"尾部 %@ 被点击", @(j)]];
             }];
-            FKTableSectionHeaderFooterConfig* headConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:50 headFooterModel:headModel];
-            FKTableSectionHeaderFooterConfig* footConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:30 headFooterModel:footModel];
-            FKTableViewSectionModel* sectionModel = [[FKTableViewSectionModel alloc] initWithRowModels:tmpRowModels headConfig:headConfig footConfig:footConfig];
+            FKSectionHeaderFooterConfig* headConfig = [[FKSectionHeaderFooterConfig alloc] initWithHeight:50 headFooterModel:headModel];
+            FKSectionHeaderFooterConfig* footConfig = [[FKSectionHeaderFooterConfig alloc] initWithHeight:30 headFooterModel:footModel];
+            FKSectionModel* sectionModel = [[FKSectionModel alloc] initWithRowModels:tmpRowModels headConfig:headConfig footConfig:footConfig];
             
             [_sectionModelArr addObject:sectionModel];
         }
@@ -106,7 +106,7 @@
         _commonSectionModelArr = [NSMutableArray array];
         for (int j=0; j<5; j++)
         {
-            NSMutableArray<FKTableViewCellModel*>* tmpRowModels = [NSMutableArray array];
+            NSMutableArray<FKCellModel*>* tmpRowModels = [NSMutableArray array];
             for (int i=0; i<20; i++)
             {
                 FKPersonCellModel* model = [FKPersonCellModel new];
@@ -121,19 +121,19 @@
                 [tmpRowModels addObject:model];
             }
 
-            NSAttributedString* text = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"header %@", @(j)]];
-            FKTableViewHeaderFooterCommonModel* headModel = [[FKTableViewHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentCenter];
-            text = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"footer %@", @(j)]];
-            FKTableViewHeaderFooterCommonModel* footModel = [[FKTableViewHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor redColor] textAlignment:NSTextAlignmentRight];
+            NSAttributedString* text = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"section header %@", @(j)]];
+            FKSectionHeaderFooterCommonModel* headModel = [[FKSectionHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentCenter];
+            text = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"section footer %@", @(j)]];
+            FKSectionHeaderFooterCommonModel* footModel = [[FKSectionHeaderFooterCommonModel alloc] initWithText:text bgColor:[UIColor redColor] textAlignment:NSTextAlignmentRight];
             [headModel.clickSignal subscribeNext:^(id  _Nullable x) {
                 [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"头部 %@ 被点击", @(j)]];
             }];
             [footModel.clickSignal subscribeNext:^(id  _Nullable x) {
                 [self.showFullNameSignal sendNext:[NSString stringWithFormat:@"尾部 %@ 被点击", @(j)]];
             }];
-            FKTableSectionHeaderFooterConfig* headConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:50 headFooterModel:headModel];
-            FKTableSectionHeaderFooterConfig* footConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:30 headFooterModel:footModel];
-            FKTableViewSectionModel* sectionModel = [[FKTableViewSectionModel alloc] initWithRowModels:tmpRowModels headConfig:headConfig footConfig:footConfig];
+            FKSectionHeaderFooterConfig* headConfig = [[FKSectionHeaderFooterConfig alloc] initWithHeight:50 headFooterModel:headModel];
+            FKSectionHeaderFooterConfig* footConfig = [[FKSectionHeaderFooterConfig alloc] initWithHeight:30 headFooterModel:footModel];
+            FKSectionModel* sectionModel = [[FKSectionModel alloc] initWithRowModels:tmpRowModels headConfig:headConfig footConfig:footConfig];
 
             [_commonSectionModelArr addObject:sectionModel];
         }
@@ -150,12 +150,12 @@
     return _showFullNameSignal;
 }
 
--(void (^)(FKTableViewCellModel* x)) handleSelected
+-(void (^)(FKCellModel* x)) handleSelected
 {
     if (!_handleSelected)
     {
         @weakify(self);
-        _handleSelected = ^(FKTableViewCellModel * _Nullable x) {
+        _handleSelected = ^(FKCellModel * _Nullable x) {
             @strongify(self);
             FKPersonCellModel* model = (FKPersonCellModel*)x;
             [self.showFullNameSignal sendNext:model.age];

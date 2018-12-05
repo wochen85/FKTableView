@@ -5,12 +5,12 @@
 //  Created by CHAT on 2018/11/28.
 //
 
-#import "FKTableViewHeaderFooterModel.h"
+#import "FKHeaderFooterModel.h"
 
-@interface FKTableViewHeaderFooterModel()
+@interface FKHeaderFooterModel()
 @end
 
-@implementation FKTableViewHeaderFooterModel
+@implementation FKHeaderFooterModel
 
 - (NSString *)nibName
 {

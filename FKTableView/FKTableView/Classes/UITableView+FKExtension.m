@@ -8,64 +8,93 @@
 
 #import "UITableView+FKExtension.h"
 #import <objc/runtime.h>
-#import "FKTableViewCellModel.h"
-#import "FKTableViewSectionModel.h"
+#import "FKCellModel.h"
+#import "FKSectionModel.h"
 #import "UITableViewCell+FKExtension.h"
 #import "UITableViewHeaderFooterView+FKExtension.h"
-#import "FKTableViewHeaderFooterCommonModel.h"
+#import "FKSectionHeaderFooterCommonModel.h"
+#import "UIView+FKExtension.h"
 
 @interface UITableView ()<UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) NSArray<FKTableViewSectionModel*>* sectionModels;
+@property (nonatomic, strong) NSArray<FKSectionModel*>* fk_sectionModels;
 @end
 
 @implementation UITableView (FKExtension)
 
 #pragma mark - 存取器
 
-- (NSArray<FKTableViewSectionModel *> *)sectionModels
+- (NSArray<FKSectionModel *> *)fk_sectionModels
 {
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (void)setSectionModels:(NSArray<FKTableViewSectionModel *> *)sectionModels
+- (void)setFk_sectionModels:(NSArray<FKSectionModel *> *)sectionModels
 {
-    objc_setAssociatedObject(self, @selector(sectionModels), sectionModels, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(fk_sectionModels), sectionModels, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(void) configRowModels:(NSArray<FKTableViewCellModel*>*) rowModels
+-(void) fk_configRowModels:(NSArray<FKCellModel*>*) rowModels
 {
-    FKTableViewSectionModel* sectionModel = [[FKTableViewSectionModel alloc] initWithRowModels:rowModels headConfig:nil footConfig:nil];
+    FKSectionModel* sectionModel = [[FKSectionModel alloc] initWithRowModels:rowModels headConfig:nil footConfig:nil];
     
-    self.sectionModels = @[sectionModel];
+    self.fk_sectionModels = @[sectionModel];
     self.dataSource = self;
     self.delegate = self;
     [self reloadData];
 }
 
--(void) configSectionModels:(NSArray<FKTableViewSectionModel*>*) sectionModels
+-(void) fk_configSectionModels:(NSArray<FKSectionModel*>*) sectionModels
 {
-    self.sectionModels = sectionModels;
+    self.fk_sectionModels = sectionModels;
     self.dataSource = self;
     self.delegate = self;
     [self reloadData];
+}
+
+-(void) fk_configHeader:(nullable FKHeaderFooterModel*) headerModel
+{
+    if (!headerModel)
+    {
+        self.tableHeaderView = [UIView new];
+        return;
+    }
+    NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:headerModel.nibName owner:nil options:nil];
+    NSAssert(viewArr.count, @"invalid nib");
+    self.tableHeaderView = viewArr[0];
+    self.tableHeaderView.clipsToBounds = YES;
+    [self.tableHeaderView fk_bindModel:headerModel];
+}
+
+-(void) fk_configFooter:(FKHeaderFooterModel*) footerModel
+{
+    if (!footerModel)
+    {
+        self.tableFooterView = [UIView new];
+        return;
+    }
+    NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:footerModel.nibName owner:nil options:nil];
+    NSAssert(viewArr.count, @"invalid nib");
+    self.tableFooterView = viewArr[0];
+    self.tableHeaderView.clipsToBounds = YES;
+    [self.tableFooterView fk_bindModel:footerModel];
 }
 
 #pragma mark - 数据源
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.sectionModels.count;
+    return self.fk_sectionModels.count;
 }
 
--(FKTableViewCellModel*) rowModel:(NSIndexPath*)indexPath
+-(FKCellModel*) rowModel:(NSIndexPath*)indexPath
 {
-    return self.sectionModels[indexPath.section].rowModels[indexPath.row];
+    return self.fk_sectionModels[indexPath.section].rowModels[indexPath.row];
 }
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.sectionModels[section].rowModels.count;
+    return self.fk_sectionModels[section].rowModels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,22 +113,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return self.sectionModels[section].headConfig.height;
+    return self.fk_sectionModels[section].headConfig.height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return self.sectionModels[section].footConfig.height;
+    return self.fk_sectionModels[section].footConfig.height;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [UITableViewHeaderFooterView fk_headerFooterForTableView:tableView headerFooterModel:self.sectionModels[section].headConfig.headFooterModel];
+    return [UITableViewHeaderFooterView fk_headerFooterForTableView:tableView headerFooterModel:self.fk_sectionModels[section].headConfig.headFooterModel];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return [UITableViewHeaderFooterView fk_headerFooterForTableView:tableView headerFooterModel:self.sectionModels[section].footConfig.headFooterModel];
+    return [UITableViewHeaderFooterView fk_headerFooterForTableView:tableView headerFooterModel:self.fk_sectionModels[section].footConfig.headFooterModel];
 }
 
 

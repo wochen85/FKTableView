@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class RACSubject;
-@interface FKTableViewHeaderFooterModel : NSObject
+@interface FKHeaderFooterModel : NSObject
 @property (nonatomic, copy) NSString* nibName;
 @end
 

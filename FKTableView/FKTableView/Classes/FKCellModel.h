@@ -12,8 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class RACSubject;
-@interface FKTableViewCellModel : NSObject
-@property (nonatomic, strong, readonly) RACSubject<FKTableViewCellModel*>* selectedSignal;
+@interface FKCellModel : NSObject
+@property (nonatomic, strong, readonly) RACSubject<FKCellModel*>* selectedSignal;
 @property (nonatomic, copy) NSString* nibName;
 @end
 

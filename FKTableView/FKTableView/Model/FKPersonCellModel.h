@@ -6,11 +6,11 @@
 //  Copyright © 2018 CHAT. All rights reserved.
 //
 
-#import "FKTableViewCellModel.h"
+#import "FKCellModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FKPersonCellModel : FKTableViewCellModel
+@interface FKPersonCellModel : FKCellModel
 @property(nonatomic, copy) NSString* personId;
 @property(nonatomic, copy) NSString* shortName;
 @property(nonatomic, copy) NSString* fullName;

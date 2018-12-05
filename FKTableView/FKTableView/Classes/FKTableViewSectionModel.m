@@ -6,17 +6,17 @@
 //  Copyright © 2018 CHAT. All rights reserved.
 //
 
-#import "FKTableViewSectionModel.h"
-#import "FKTableViewHeaderFooterModel.h"
+#import "FKSectionModel.h"
+#import "FKHeaderFooterModel.h"
 
-@interface FKTableSectionHeaderFooterConfig()
+@interface FKSectionHeaderFooterConfig()
 @property (nonatomic) NSUInteger height;
-@property (nonatomic, strong) FKTableViewHeaderFooterModel* headFooterModel;
+@property (nonatomic, strong) FKHeaderFooterModel* headFooterModel;
 @end
 
-@implementation FKTableSectionHeaderFooterConfig
+@implementation FKSectionHeaderFooterConfig
 
-- (instancetype)initWithHeight:(NSUInteger) height headFooterModel:(FKTableViewHeaderFooterModel*) headFooterModel
+- (instancetype)initWithHeight:(NSUInteger) height headFooterModel:(FKHeaderFooterModel*) headFooterModel
 {
     self = [super init];
     if (self) {
@@ -26,25 +26,25 @@
     return self;
 }
 
-- (FKTableViewHeaderFooterModel *)headFooterModel
+- (FKHeaderFooterModel *)headFooterModel
 {
     if (nil == _headFooterModel)
     {
-        _headFooterModel = [FKTableViewHeaderFooterModel new];
+        _headFooterModel = [FKHeaderFooterModel new];
     }
     return _headFooterModel;
 }
 
 @end
 
-@interface FKTableViewSectionModel()
-@property (nonatomic, strong) NSArray<FKTableViewCellModel*>* rowModels;
-@property (nonatomic, strong) FKTableSectionHeaderFooterConfig* headConfig;
-@property (nonatomic, strong) FKTableSectionHeaderFooterConfig* footConfig;
+@interface FKSectionModel()
+@property (nonatomic, strong) NSArray<FKCellModel*>* rowModels;
+@property (nonatomic, strong) FKSectionHeaderFooterConfig* headConfig;
+@property (nonatomic, strong) FKSectionHeaderFooterConfig* footConfig;
 @end
 
-@implementation FKTableViewSectionModel
-- (instancetype)initWithRowModels:(NSArray<FKTableViewCellModel*>*)rowModels headConfig:(FKTableSectionHeaderFooterConfig*) headConfig footConfig:(FKTableSectionHeaderFooterConfig*) footConfig;
+@implementation FKSectionModel
+- (instancetype)initWithRowModels:(NSArray<FKCellModel*>*)rowModels headConfig:(FKSectionHeaderFooterConfig*) headConfig footConfig:(FKSectionHeaderFooterConfig*) footConfig;
 {
     self = [super init];
     if (self) {
@@ -55,25 +55,25 @@
     return self;
 }
 
-- (FKTableSectionHeaderFooterConfig *)headConfig
+- (FKSectionHeaderFooterConfig *)headConfig
 {
     if (!_headConfig)
     {
-        _headConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:0.00000001 headFooterModel:nil];
+        _headConfig = [[FKSectionHeaderFooterConfig alloc] initWithHeight:0.00000001 headFooterModel:nil];
     }
     return _headConfig;
 }
 
-- (FKTableSectionHeaderFooterConfig *)footConfig
+- (FKSectionHeaderFooterConfig *)footConfig
 {
     if (!_footConfig)
     {
-        _footConfig = [[FKTableSectionHeaderFooterConfig alloc] initWithHeight:0.00000001 headFooterModel:nil];
+        _footConfig = [[FKSectionHeaderFooterConfig alloc] initWithHeight:0.00000001 headFooterModel:nil];
     }
     return _footConfig;
 }
 
-- (NSArray<FKTableViewCellModel *> *)rowModels
+- (NSArray<FKCellModel *> *)rowModels
 {
     if (!_rowModels)
     {
