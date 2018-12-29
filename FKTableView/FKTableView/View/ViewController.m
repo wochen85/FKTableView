@@ -63,12 +63,11 @@
         headModel.labelText = @"tableHead";
         headModel.segmentIndex = 0;
         headModel.buttonText = @"头部操作";
-        [self.tableView fk_configHeader:headModel];
-        self.tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 110);
+        [self.tableView fk_configHeader:headModel height:110];
     }
     else
     {
-        [self.tableView fk_configHeader:nil];
+        [self.tableView fk_configHeader:nil height:0];
     }
     flag = !flag;
     [self.tableView endUpdates];
@@ -111,15 +110,13 @@
     headModel.labelText = @"tableHead";
     headModel.segmentIndex = 0;
     headModel.buttonText = @"头部操作";
-    [self.tableView fk_configHeader:headModel];
-    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 110);
+    [self.tableView fk_configHeader:headModel height:110];
     
     MyTableHeadFootModel* footModel = [MyTableHeadFootModel new];
     footModel.labelText = @"tableFoot";
     footModel.segmentIndex = 1;
     footModel.buttonText = @"尾部操作";
-    [self.tableView fk_configFooter:footModel];
-    self.tableView.tableFooterView.frame = CGRectMake(0, 0, 0, 110);
+    [self.tableView fk_configFooter:footModel height:110];
 }
 
 
