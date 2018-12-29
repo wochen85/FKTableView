@@ -51,7 +51,7 @@
     [self reloadData];
 }
 
--(void) fk_configHeader:(nullable FKHeaderFooterModel*) headerModel
+-(void) fk_configHeader:(nullable FKHeaderFooterModel*) headerModel height:(CGFloat) height
 {
     if (!headerModel)
     {
@@ -60,12 +60,14 @@
     }
     NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:headerModel.nibName owner:nil options:nil];
     NSAssert(viewArr.count, @"invalid nib");
-    self.tableHeaderView = viewArr[0];
+    UIView* view = viewArr[0];
+    view.frame = CGRectMake(0, 0, 0, height);
+    self.tableHeaderView = view;
     self.tableHeaderView.clipsToBounds = YES;
     [self.tableHeaderView fk_bindModel:headerModel];
 }
 
--(void) fk_configFooter:(FKHeaderFooterModel*) footerModel
+-(void) fk_configFooter:(FKHeaderFooterModel*) footerModel height:(CGFloat) height
 {
     if (!footerModel)
     {
@@ -74,7 +76,9 @@
     }
     NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:footerModel.nibName owner:nil options:nil];
     NSAssert(viewArr.count, @"invalid nib");
-    self.tableFooterView = viewArr[0];
+    UIView* view = viewArr[0];
+    view.frame = CGRectMake(0, 0, 0, height);
+    self.tableFooterView = view;
     self.tableHeaderView.clipsToBounds = YES;
     [self.tableFooterView fk_bindModel:footerModel];
 }

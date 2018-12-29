@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UITableView (FKExtension)
 -(void) fk_configRowModels:(NSArray<FKCellModel*>*) rowModels;
 -(void) fk_configSectionModels:(NSArray<FKSectionModel*>*) sectionModels;
--(void) fk_configHeader:(nullable FKHeaderFooterModel*) headerModel;
--(void) fk_configFooter:(FKHeaderFooterModel*) footerModel;
+-(void) fk_configHeader:(nullable FKHeaderFooterModel*) headerModel height:(CGFloat) height;
+-(void) fk_configFooter:(FKHeaderFooterModel*) footerModel height:(CGFloat) height;
 @end
 
 NS_ASSUME_NONNULL_END
