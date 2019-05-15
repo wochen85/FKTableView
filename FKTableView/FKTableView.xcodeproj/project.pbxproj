@@ -65,7 +65,7 @@
 		6BCAA7F621AE804500583AFB /* MyTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		6BCAA7F821AE816E00583AFB /* MyTableViewHeaderFooterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewHeaderFooterViewModel.h; sourceTree = "<group>"; };
 		6BCAA7F921AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewHeaderFooterViewModel.m; sourceTree = "<group>"; };
-		6BCAA7FB21AF805300583AFB /* FKTableView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FKTableView.podspec; path = ../FKTableView.podspec; sourceTree = "<group>"; };
+		6BCAA7FB21AF805300583AFB /* FKTableView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FKTableView.podspec; path = ../FKTableView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B2D133E161D419925CA51949 /* libPods-FKTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FKTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8714E0E2F7CBA00538A1247 /* Pods-FKTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FKTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FKTableView/Pods-FKTableView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */

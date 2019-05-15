@@ -1,7 +1,9 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
-  - FKTableView (1.1.2):
+  - FKTableCollectionExtensionBase (1.0.0):
     - ReactiveObjC
+  - FKTableView (1.2.0):
+    - FKTableCollectionExtensionBase
   - MJRefresh (3.1.15.7)
   - ReactiveObjC (3.1.0)
   - ScrollViewFreshEmpty (0.1.1):
@@ -17,6 +19,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DZNEmptyDataSet
+    - FKTableCollectionExtensionBase
     - MJRefresh
     - ReactiveObjC
     - ScrollViewFreshEmpty
@@ -28,7 +31,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  FKTableView: 1c971b6d8e856463d6d91c6afe81ea117d3fc994
+  FKTableCollectionExtensionBase: 9e49d82bb9065b9518e4d5eabe04b97e53472a0f
+  FKTableView: 03e3e261cfc5b7dcb53c6981fe51b30534d19a65
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   ScrollViewFreshEmpty: 20fa65ec93b3552d95ef42f208366c7e78ecdcd9
