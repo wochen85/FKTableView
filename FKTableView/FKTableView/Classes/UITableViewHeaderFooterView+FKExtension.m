@@ -9,6 +9,7 @@
 #import <objc/runtime.h>
 #import "FKTableView.h"
 #import "FKHeaderFooterCommon.h"
+#import "FKTableViewHeaderFooterCommonView.h"
 
 @implementation UITableViewHeaderFooterView (FKExtension)
 
@@ -17,11 +18,12 @@
     if ([headerFooterModel isKindOfClass:[FKHeaderFooterCommonModel class]])
     {
         static NSString* commonHeadFoot = @"commonHeadFoot";
-        FKHeaderFooterCommon* headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:commonHeadFoot];
+        FKTableViewHeaderFooterCommonView* headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:commonHeadFoot];
         if (nil == headerFooterView)
         {
-            headerFooterView = [[FKHeaderFooterCommon alloc] initWithReuseIdentifier:commonHeadFoot];
+            headerFooterView = [[FKTableViewHeaderFooterCommonView alloc] initWithReuseIdentifier:commonHeadFoot];
         }
+        
         headerFooterView.fk_viewModel = headerFooterModel;
         return headerFooterView;
     }

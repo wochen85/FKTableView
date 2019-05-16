@@ -1,8 +1,8 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
-  - FKTableCollectionExtensionBase (1.0.1):
+  - FKTableCollectionExtensionBase (1.0.2):
     - ReactiveObjC
-  - FKTableView (1.2.0):
+  - FKTableView (1.2.1):
     - FKTableCollectionExtensionBase
   - MJRefresh (3.1.15.7)
   - ReactiveObjC (3.1.1)
@@ -31,8 +31,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  FKTableCollectionExtensionBase: 8bfb8778f20902982aa4d6e324d4df6f0af1a00d
-  FKTableView: 03e3e261cfc5b7dcb53c6981fe51b30534d19a65
+  FKTableCollectionExtensionBase: 87a7d07355d049e322434ce8738ac3fc2adef1aa
+  FKTableView: 962cb232861017fd2b4d1e749bc20929f95cc2bc
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   ScrollViewFreshEmpty: e96a26448074885f5b75e86966558b858c3069fa
