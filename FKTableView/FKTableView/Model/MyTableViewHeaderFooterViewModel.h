@@ -6,11 +6,11 @@
 //  Copyright © 2018 CHAT. All rights reserved.
 //
 
-#import "FKHeaderFooterModel.h"
+#import <FKTableCollectionExtensionBase/FKTableCollectionExtensionBase.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MyTableViewHeaderFooterViewModel : FKHeaderFooterModel
+@interface MyTableViewHeaderFooterViewModel : FKViewModel
 
 - (instancetype)initWithLabelText:(NSString*) labelText buttonText:(NSString*) buttonText;
 @property (nonatomic, copy) NSString* labelText;

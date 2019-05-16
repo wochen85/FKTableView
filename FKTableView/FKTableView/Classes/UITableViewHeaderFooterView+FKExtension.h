@@ -9,11 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class FKHeaderFooterModel;
+@class FKViewModel;
 @interface UITableViewHeaderFooterView (FKExtension)
-+(instancetype) fk_headerFooterForTableView:(UITableView*) tableView headerFooterModel:(FKHeaderFooterModel*)headerFooterModel;
-//-(void) fk_bindModel:(FKHeaderFooterModel*) headerFooterModel;
-@property (nonatomic, strong, readonly) FKHeaderFooterModel* fk_headerFooterModel;
++(instancetype) fk_headerFooterForTableView:(UITableView*) tableView headerFooterModel:(FKViewModel*)headerFooterModel;
 @end
 
 NS_ASSUME_NONNULL_END

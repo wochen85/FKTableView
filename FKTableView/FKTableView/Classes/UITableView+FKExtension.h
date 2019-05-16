@@ -12,12 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class FKCellModel;
 @class FKSectionModel;
-@class FKHeaderFooterModel;
+@class FKViewModel;
 @interface UITableView (FKExtension)
 -(void) fk_configRowModels:(NSArray<FKCellModel*>*) rowModels;
 -(void) fk_configSectionModels:(NSArray<FKSectionModel*>*) sectionModels;
--(void) fk_configHeader:(nullable FKHeaderFooterModel*) headerModel height:(CGFloat) height;
--(void) fk_configFooter:(FKHeaderFooterModel*) footerModel height:(CGFloat) height;
+-(void) fk_configHeader:(nullable FKViewModel*) headerModel height:(CGFloat) height;
+-(void) fk_configFooter:(FKViewModel*) footerModel height:(CGFloat) height;
 @end
 
 NS_ASSUME_NONNULL_END

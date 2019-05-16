@@ -51,7 +51,7 @@
     [self reloadData];
 }
 
--(void) fk_configHeader:(nullable FKHeaderFooterModel*) headerModel height:(CGFloat) height
+-(void) fk_configHeader:(nullable FKViewModel*) headerModel height:(CGFloat) height
 {
     if (!headerModel)
     {
@@ -67,7 +67,7 @@
     [self.tableHeaderView fk_bindModel:headerModel];
 }
 
--(void) fk_configFooter:(FKHeaderFooterModel*) footerModel height:(CGFloat) height
+-(void) fk_configFooter:(FKViewModel*) footerModel height:(CGFloat) height
 {
     if (!footerModel)
     {
