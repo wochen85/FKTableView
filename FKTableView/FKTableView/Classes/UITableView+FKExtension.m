@@ -58,9 +58,26 @@
         self.tableHeaderView = [UIView new];
         return;
     }
-    NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:headerModel.nibName owner:nil options:nil];
-    NSAssert(viewArr.count, @"invalid nib");
-    UIView* view = viewArr[0];
+    
+    NSString* nibPath = [[NSBundle mainBundle] pathForResource:headerModel.nibOrClassName ofType:@"nib"];
+    UIView* view = nil;
+    if (nibPath)
+    {
+        NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:headerModel.nibOrClassName owner:nil options:nil];
+        if (viewArr.count)
+        {
+            view = viewArr[0];
+        }
+        else
+        {
+            view = [NSClassFromString(headerModel.nibOrClassName) new];
+        }
+    }
+    else
+    {
+        view = [NSClassFromString(headerModel.nibOrClassName) new];
+    }
+    
     view.frame = CGRectMake(0, 0, 0, height);
     self.tableHeaderView = view;
     self.tableHeaderView.clipsToBounds = YES;
@@ -74,9 +91,24 @@
         self.tableFooterView = [UIView new];
         return;
     }
-    NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:footerModel.nibName owner:nil options:nil];
-    NSAssert(viewArr.count, @"invalid nib");
-    UIView* view = viewArr[0];
+    NSString* nibPath = [[NSBundle mainBundle] pathForResource:footerModel.nibOrClassName ofType:@"nib"];
+    UIView* view = nil;
+    if (nibPath)
+    {
+        NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:footerModel.nibOrClassName owner:nil options:nil];
+        if (viewArr.count)
+        {
+            view = viewArr[0];
+        }
+        else
+        {
+            view = [NSClassFromString(footerModel.nibOrClassName) new];
+        }
+    }
+    else
+    {
+        view = [NSClassFromString(footerModel.nibOrClassName) new];
+    }
     view.frame = CGRectMake(0, 0, 0, height);
     self.tableFooterView = view;
     self.tableHeaderView.clipsToBounds = YES;

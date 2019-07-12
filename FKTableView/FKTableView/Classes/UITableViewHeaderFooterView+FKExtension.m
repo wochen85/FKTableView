@@ -28,12 +28,20 @@
         return headerFooterView;
     }
 
-    NSString* idf = headerFooterModel.nibName;
+    NSString* idf = headerFooterModel.nibOrClassName;
     UITableViewHeaderFooterView* headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:idf];
     if (nil == headerFooterView)
     {
-        UINib* nib = [UINib nibWithNibName:idf bundle:nil];
-        [tableView registerNib:nib forHeaderFooterViewReuseIdentifier:idf];
+        NSString* nibPath = [[NSBundle mainBundle] pathForResource:idf ofType:@"nib"];
+        if (nibPath)
+        {
+            UINib* nib = [UINib nibWithNibName:idf bundle:nil];
+            [tableView registerNib:nib forHeaderFooterViewReuseIdentifier:idf];
+        }
+        else
+        {
+            [tableView registerClass:NSClassFromString(idf) forHeaderFooterViewReuseIdentifier:idf];
+        }
         headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:idf];
     }
     headerFooterView.fk_viewModel = headerFooterModel;

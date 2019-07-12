@@ -15,11 +15,19 @@
 
 +(instancetype) fk_cellForTableView:(UITableView*) tableView cellModel:(FKCellModel*)cellModel
 {
-    NSString* idf = cellModel.nibName;
+    NSString* idf = cellModel.nibOrClassName;
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:idf];
     if (!cell)
     {
-        [tableView registerNib:[UINib nibWithNibName:cellModel.nibName bundle:nil] forCellReuseIdentifier:idf];
+        NSString* nibPath = [[NSBundle mainBundle] pathForResource:idf ofType:@"nib"];
+        if (nibPath)
+        {
+            [tableView registerNib:[UINib nibWithNibName:cellModel.nibOrClassName bundle:nil] forCellReuseIdentifier:idf];
+        }
+        else
+        {
+            [tableView registerClass:NSClassFromString(idf) forCellReuseIdentifier:idf];
+        }
         cell = [tableView dequeueReusableCellWithIdentifier:idf];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

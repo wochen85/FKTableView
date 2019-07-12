@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "SectionViewController.h"
 #import "CommonSectionViewController.h"
+#import "WithoutNibViewController.h"
 
 @interface HomeViewController ()
 
@@ -39,6 +40,12 @@
 - (IBAction)goCustomSection:(UIButton*)sender
 {
     SectionViewController* vc = [SectionViewController new];
+    vc.title = sender.currentTitle;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)goWithoutXib:(UIButton*)sender {
+    WithoutNibViewController* vc = [WithoutNibViewController new];
     vc.title = sender.currentTitle;
     [self.navigationController pushViewController:vc animated:YES];
 }

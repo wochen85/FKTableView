@@ -1,9 +1,10 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
-  - FKTableCollectionExtensionBase (1.0.2):
+  - FKTableCollectionExtensionBase (1.0.5):
     - ReactiveObjC
   - FKTableView (1.2.2):
-    - FKTableCollectionExtensionBase
+    - FKTableCollectionExtensionBase (= 1.0.5)
+  - Masonry (1.1.0)
   - MJRefresh (3.1.15.7)
   - ReactiveObjC (3.1.1)
   - ScrollViewFreshEmpty (0.1.2):
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - FKTableView (from `../`)
+  - Masonry
   - ScrollViewFreshEmpty
   - SVProgressHUD
 
@@ -20,6 +22,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DZNEmptyDataSet
     - FKTableCollectionExtensionBase
+    - Masonry
     - MJRefresh
     - ReactiveObjC
     - ScrollViewFreshEmpty
@@ -31,13 +34,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  FKTableCollectionExtensionBase: 87a7d07355d049e322434ce8738ac3fc2adef1aa
-  FKTableView: 4a5a46e63aa1f01abdc184870359082556ce9f7a
+  FKTableCollectionExtensionBase: 4ff23116d74517366ad5cd1956d92bf681123fd0
+  FKTableView: 87ebabb2081c832a803107f34b9e60e0aa80808c
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   ScrollViewFreshEmpty: e96a26448074885f5b75e86966558b858c3069fa
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 71d5648d0a8b601c071743c03de8b4dcb23a8810
+PODFILE CHECKSUM: 706e65999fd9e10e4afd8bb35625c41856a13f03
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.2
