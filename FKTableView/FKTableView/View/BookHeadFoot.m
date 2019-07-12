@@ -27,9 +27,17 @@
     return _label;
 }
 
-- (void)layoutSubviews
+- (instancetype)init
 {
-    [super layoutSubviews];
+    self = [super init];
+    if (self) {
+        [self configSuviews];
+    }
+    return self;
+}
+
+- (void) configSuviews
+{
     [self addSubview:self.label];
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);

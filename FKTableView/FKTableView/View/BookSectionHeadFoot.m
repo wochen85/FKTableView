@@ -32,9 +32,18 @@
     self.label.text = model.text;
 }
 
-- (void)layoutSubviews
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
-    [super layoutSubviews];
+    self = [super initWithReuseIdentifier:reuseIdentifier];
+    if (self)
+    {
+        [self configSubviews];
+    }
+    return self;
+}
+
+- (void) configSubviews
+{
     [self addSubview:self.label];
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
