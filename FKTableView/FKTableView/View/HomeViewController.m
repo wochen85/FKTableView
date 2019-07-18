@@ -11,6 +11,7 @@
 #import "SectionViewController.h"
 #import "CommonSectionViewController.h"
 #import "WithoutNibViewController.h"
+#import "SettingViewController.h"
 
 @interface HomeViewController ()
 
@@ -47,6 +48,12 @@
 - (IBAction)goWithoutXib:(UIButton*)sender {
     WithoutNibViewController* vc = [WithoutNibViewController new];
     vc.title = sender.currentTitle;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)goDemo:(id)sender
+{
+    SettingViewController* vc = [SettingViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

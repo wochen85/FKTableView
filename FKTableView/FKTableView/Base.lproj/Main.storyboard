@@ -65,6 +65,14 @@
                                     <action selector="goWithoutXib:" destination="Dg5-h8-xHE" eventType="touchUpInside" id="TQk-0l-nD3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20e-yv-jl0">
+                                <rect key="frame" x="152" y="349" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="demo演示"/>
+                                <connections>
+                                    <action selector="goDemo:" destination="Dg5-h8-xHE" eventType="touchUpInside" id="9LK-uA-uy1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="E6b-z0-5gB"/>

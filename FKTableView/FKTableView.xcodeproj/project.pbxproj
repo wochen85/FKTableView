@@ -31,6 +31,11 @@
 		6B85E8C0217877450006BC1A /* SectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85E8BF217877450006BC1A /* SectionViewController.m */; };
 		6B8A1DA421B026B500000CF5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A1DA321B026B500000CF5 /* HomeViewController.m */; };
 		6B8A1DA921B02A7500000CF5 /* CommonSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A1DA821B02A7500000CF5 /* CommonSectionViewController.m */; };
+		6BA4B12D22E011450013F0A0 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA4B12C22E011450013F0A0 /* SettingViewController.m */; };
+		6BA4B13022E013440013F0A0 /* TextSettingCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA4B12F22E013440013F0A0 /* TextSettingCellModel.m */; };
+		6BA4B13322E0138A0013F0A0 /* TextSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA4B13222E0138A0013F0A0 /* TextSettingCell.m */; };
+		6BA4B13622E015660013F0A0 /* SwitchSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA4B13522E015660013F0A0 /* SwitchSettingCell.m */; };
+		6BA4B13922E015870013F0A0 /* SwitchSettingCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA4B13822E015870013F0A0 /* SwitchSettingCellModel.m */; };
 		6BCAA7F421AE7F9200583AFB /* MyTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BCAA7F321AE7F9200583AFB /* MyTableViewHeaderFooterView.xib */; };
 		6BCAA7F721AE804500583AFB /* MyTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAA7F621AE804500583AFB /* MyTableViewHeaderFooterView.m */; };
 		6BCAA7FA21AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAA7F921AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m */; };
@@ -81,6 +86,16 @@
 		6B8A1DA321B026B500000CF5 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6B8A1DA721B02A7500000CF5 /* CommonSectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonSectionViewController.h; sourceTree = "<group>"; };
 		6B8A1DA821B02A7500000CF5 /* CommonSectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonSectionViewController.m; sourceTree = "<group>"; };
+		6BA4B12B22E011450013F0A0 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		6BA4B12C22E011450013F0A0 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		6BA4B12E22E013440013F0A0 /* TextSettingCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextSettingCellModel.h; sourceTree = "<group>"; };
+		6BA4B12F22E013440013F0A0 /* TextSettingCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextSettingCellModel.m; sourceTree = "<group>"; };
+		6BA4B13122E0138A0013F0A0 /* TextSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextSettingCell.h; sourceTree = "<group>"; };
+		6BA4B13222E0138A0013F0A0 /* TextSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextSettingCell.m; sourceTree = "<group>"; };
+		6BA4B13422E015660013F0A0 /* SwitchSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchSettingCell.h; sourceTree = "<group>"; };
+		6BA4B13522E015660013F0A0 /* SwitchSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchSettingCell.m; sourceTree = "<group>"; };
+		6BA4B13722E015870013F0A0 /* SwitchSettingCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchSettingCellModel.h; sourceTree = "<group>"; };
+		6BA4B13822E015870013F0A0 /* SwitchSettingCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchSettingCellModel.m; sourceTree = "<group>"; };
 		6BCAA7F321AE7F9200583AFB /* MyTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		6BCAA7F521AE804500583AFB /* MyTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		6BCAA7F621AE804500583AFB /* MyTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewHeaderFooterView.m; sourceTree = "<group>"; };
@@ -133,6 +148,7 @@
 		6B85E88C21781E470006BC1A /* FKTableView */ = {
 			isa = PBXGroup;
 			children = (
+				6BA4B12A22E011120013F0A0 /* SettingDemo */,
 				6B85E8B2217857150006BC1A /* ViewModel */,
 				6B85E8B12178570E0006BC1A /* View */,
 				6B85E8B0217856A70006BC1A /* Model */,
@@ -205,6 +221,23 @@
 				6B85E8BC21785E5A0006BC1A /* FKPersonViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6BA4B12A22E011120013F0A0 /* SettingDemo */ = {
+			isa = PBXGroup;
+			children = (
+				6BA4B12B22E011450013F0A0 /* SettingViewController.h */,
+				6BA4B12C22E011450013F0A0 /* SettingViewController.m */,
+				6BA4B12E22E013440013F0A0 /* TextSettingCellModel.h */,
+				6BA4B12F22E013440013F0A0 /* TextSettingCellModel.m */,
+				6BA4B13122E0138A0013F0A0 /* TextSettingCell.h */,
+				6BA4B13222E0138A0013F0A0 /* TextSettingCell.m */,
+				6BA4B13422E015660013F0A0 /* SwitchSettingCell.h */,
+				6BA4B13522E015660013F0A0 /* SwitchSettingCell.m */,
+				6BA4B13722E015870013F0A0 /* SwitchSettingCellModel.h */,
+				6BA4B13822E015870013F0A0 /* SwitchSettingCellModel.m */,
+			);
+			path = SettingDemo;
 			sourceTree = "<group>";
 		};
 		D866D0DD3ED86156D1060DF9 /* Pods */ = {
@@ -336,6 +369,7 @@
 				6B5A3E8422D726EE0057FF0C /* BookHeadFoot.m in Sources */,
 				6B85E8B6217857570006BC1A /* FKPersonCell.m in Sources */,
 				6B85E89221781E470006BC1A /* ViewController.m in Sources */,
+				6BA4B13622E015660013F0A0 /* SwitchSettingCell.m in Sources */,
 				6B5A3E8A22D734630057FF0C /* BookSectionHeadFoot.m in Sources */,
 				6B8A1DA921B02A7500000CF5 /* CommonSectionViewController.m in Sources */,
 				6B3779C821B7CCC4008D5F01 /* MyTableHeadFoot.m in Sources */,
@@ -343,11 +377,15 @@
 				6B8A1DA421B026B500000CF5 /* HomeViewController.m in Sources */,
 				6BCAA7FA21AE816E00583AFB /* MyTableViewHeaderFooterViewModel.m in Sources */,
 				6B85E8C0217877450006BC1A /* SectionViewController.m in Sources */,
+				6BA4B13922E015870013F0A0 /* SwitchSettingCellModel.m in Sources */,
 				6B5A3E7B22D6E0390057FF0C /* WithoutNibViewController.m in Sources */,
 				6B5A3E8722D7274C0057FF0C /* MyBookHeadFootModel.m in Sources */,
 				6BCAA7F721AE804500583AFB /* MyTableViewHeaderFooterView.m in Sources */,
+				6BA4B13322E0138A0013F0A0 /* TextSettingCell.m in Sources */,
 				6B85E89D21781E490006BC1A /* main.m in Sources */,
+				6BA4B12D22E011450013F0A0 /* SettingViewController.m in Sources */,
 				6B85E8BD21785E5A0006BC1A /* FKPersonViewModel.m in Sources */,
+				6BA4B13022E013440013F0A0 /* TextSettingCellModel.m in Sources */,
 				6B5A3E7E22D6E4A40057FF0C /* BookCell.m in Sources */,
 				6B85E88F21781E470006BC1A /* AppDelegate.m in Sources */,
 			);
