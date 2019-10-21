@@ -81,6 +81,7 @@
     view.frame = CGRectMake(0, 0, 0, height);
     self.tableHeaderView = view;
     self.tableHeaderView.clipsToBounds = YES;
+    self.tableHeaderView.fk_viewModel = footerModel;
     [self.tableHeaderView fk_bindModel:headerModel];
 }
 
@@ -111,7 +112,8 @@
     }
     view.frame = CGRectMake(0, 0, 0, height);
     self.tableFooterView = view;
-    self.tableHeaderView.clipsToBounds = YES;
+    self.tableFooterView.clipsToBounds = YES;
+    self.tableFooterView.fk_viewModel = footerModel;
     [self.tableFooterView fk_bindModel:footerModel];
 }
 
