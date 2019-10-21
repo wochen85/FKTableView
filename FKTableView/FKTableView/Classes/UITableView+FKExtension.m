@@ -81,7 +81,7 @@
     view.frame = CGRectMake(0, 0, 0, height);
     self.tableHeaderView = view;
     self.tableHeaderView.clipsToBounds = YES;
-    self.tableHeaderView.fk_viewModel = footerModel;
+    self.tableHeaderView.fk_viewModel = headerModel;
     [self.tableHeaderView fk_bindModel:headerModel];
 }
 
