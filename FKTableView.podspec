@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FKTableView'
-  s.version          = '1.2.7'
+  s.version          = '1.2.8'
   s.summary          = 'UITableView的友好扩展'
   s.homepage         = 'https://github.com/wochen85/FKTableView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.dependency 'FKTableCollectionExtensionBase'
+  s.dependency 'FKTableCollectionExtensionBase', '1.0.6'
 
   s.source_files = 'FKTableView/FKTableView/Classes/*.{h,m}'
 

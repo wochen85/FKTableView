@@ -15,14 +15,15 @@
 
 +(instancetype) fk_cellForTableView:(UITableView*) tableView cellModel:(FKCellModel*)cellModel
 {
-    NSString* idf = cellModel.nibOrClassName;
+    NSString* idf = cellModel.fk_nibOrClassName;
+    NSBundle* bundle = cellModel.fk_bundle;
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:idf];
     if (!cell)
     {
-        NSString* nibPath = [[NSBundle mainBundle] pathForResource:idf ofType:@"nib"];
+        NSString* nibPath = [bundle pathForResource:idf ofType:@"nib"];
         if (nibPath)
         {
-            [tableView registerNib:[UINib nibWithNibName:cellModel.nibOrClassName bundle:nil] forCellReuseIdentifier:idf];
+            [tableView registerNib:[UINib nibWithNibName:cellModel.fk_nibOrClassName bundle:bundle] forCellReuseIdentifier:idf];
         }
         else
         {

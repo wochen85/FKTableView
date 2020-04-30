@@ -59,23 +59,23 @@
         return;
     }
     
-    NSString* nibPath = [[NSBundle mainBundle] pathForResource:headerModel.nibOrClassName ofType:@"nib"];
+    NSString* nibPath = [[NSBundle mainBundle] pathForResource:headerModel.fk_nibOrClassName ofType:@"nib"];
     UIView* view = nil;
     if (nibPath)
     {
-        NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:headerModel.nibOrClassName owner:nil options:nil];
+        NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:headerModel.fk_nibOrClassName owner:nil options:nil];
         if (viewArr.count)
         {
             view = viewArr[0];
         }
         else
         {
-            view = [NSClassFromString(headerModel.nibOrClassName) new];
+            view = [NSClassFromString(headerModel.fk_nibOrClassName) new];
         }
     }
     else
     {
-        view = [NSClassFromString(headerModel.nibOrClassName) new];
+        view = [NSClassFromString(headerModel.fk_nibOrClassName) new];
     }
     
     view.frame = CGRectMake(0, 0, 0, height);
@@ -92,23 +92,23 @@
         self.tableFooterView = [UIView new];
         return;
     }
-    NSString* nibPath = [[NSBundle mainBundle] pathForResource:footerModel.nibOrClassName ofType:@"nib"];
+    NSString* nibPath = [[NSBundle mainBundle] pathForResource:footerModel.fk_nibOrClassName ofType:@"nib"];
     UIView* view = nil;
     if (nibPath)
     {
-        NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:footerModel.nibOrClassName owner:nil options:nil];
+        NSArray* viewArr = [[NSBundle mainBundle] loadNibNamed:footerModel.fk_nibOrClassName owner:nil options:nil];
         if (viewArr.count)
         {
             view = viewArr[0];
         }
         else
         {
-            view = [NSClassFromString(footerModel.nibOrClassName) new];
+            view = [NSClassFromString(footerModel.fk_nibOrClassName) new];
         }
     }
     else
     {
-        view = [NSClassFromString(footerModel.nibOrClassName) new];
+        view = [NSClassFromString(footerModel.fk_nibOrClassName) new];
     }
     view.frame = CGRectMake(0, 0, 0, height);
     self.tableFooterView = view;

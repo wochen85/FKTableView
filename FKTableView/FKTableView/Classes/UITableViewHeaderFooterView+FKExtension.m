@@ -28,7 +28,7 @@
         return headerFooterView;
     }
 
-    NSString* idf = headerFooterModel.nibOrClassName;
+    NSString* idf = headerFooterModel.fk_nibOrClassName;
     UITableViewHeaderFooterView* headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:idf];
     if (nil == headerFooterView)
     {
